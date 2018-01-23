@@ -1,0 +1,9 @@
+<figure class="snip1336">
+  <img src="{{ user.background }}" alt="{{ user.nickname }}" />
+  <figcaption [style.background]="backColor">
+    <img src="{{ user.photo }}" alt="profile-sample4" class="profile" />
+    <h2>{{user.name}} {{ user.surname }}<span>{{ user.position }}</span></h2>
+    <p>{{ user.comment }}</p>
+    <a (click)="randomBackground($event)" href="#" class="follow">Random background</a>
+  </figcaption>
+</figure>
