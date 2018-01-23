@@ -7,13 +7,28 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserCardComponent implements OnInit {
 
-  @Input() public user: string;
+  @Input() public user: any;
 
   public backColor: string;
+
+  public background: string;
+  public photo: string;
+  public name: string;
+  public surname: string;
+  public nickname: string;
+  public position: string;
+  public comment: string;
 
   constructor() {}
 
   ngOnInit() {
+    this.background = this.user.background;
+    this.photo = this.user.photo;
+    this.name = this.user.name;
+    this.surname = this.user.surname;
+    this.nickname = this.user.nickname;
+    this.position = this.user.position;
+    this.comment = this.user.comment;
   }
 
   randomBackground(e) {
