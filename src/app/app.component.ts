@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { usersArr } from './usersArr';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,4 @@ import { usersArr } from './usersArr';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public users: any[] = usersArr;
 }
