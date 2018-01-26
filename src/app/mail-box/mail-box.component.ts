@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {TimerObservable} from 'rxjs/observable/TimerObservable';
 
 @Component({
   selector: 'app-mail-box',
@@ -9,14 +8,15 @@ import {TimerObservable} from 'rxjs/observable/TimerObservable';
 export class MailBoxComponent implements OnInit {
 
   public letterArr: number[] = [];
-  private counter: number = 0;
+  private counter: number;
 
   constructor() {
+    this.counter = 0;
     this.letterArr.push(this.counter);
-    TimerObservable.create(5000, 5000).subscribe(() => {
+    setInterval(() => {
       this.counter++;
       this.letterArr.push(this.counter);
-    });
+    }, 5000);
   }
 
   ngOnInit() {

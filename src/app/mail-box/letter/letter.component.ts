@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
 import {Data} from '@angular/router';
-import {TimerObservable} from 'rxjs/observable/TimerObservable';
 
 @Component({
   selector: 'app-letter',
@@ -17,33 +16,29 @@ export class LetterComponent implements OnInit, OnDestroy {
   private stopwatch: string;
 
   constructor() {
-    this.Lifetime();
   }
 
   ngOnInit() {
+    this.Lifetime();
     this.data = new Date();
-  }
-
-  Lifetime() {
-
-    let timer: any = 0;
-    let hour: any = 0;
-    let minute: any = 0;
-    let second: any = 0;
-    TimerObservable.create(0, 1000).subscribe(() => {
-      ++timer;
-      hour   = Math.floor(timer / 3600);
-      minute = Math.floor((timer - hour * 3600) / 60);
-      second = timer - hour * 3600 - minute * 60;
-      hour = hour < 10 ? '0' + hour : hour;
-      minute = minute < 10 ? '0' + minute : minute;
-      second =  second < 10 ? '0' + second : second;
-      this.stopwatch = hour + ':' + minute + ':' + second;
-    });
   }
 
   zeroFront(time: any): any {
     return time < 10 ? '0' + time : time;
+  }
+
+  Lifetime() {
+    let timer: any = 0;
+    let h: any = 0;
+    let m: any = 0;
+    let s: any = 0;
+    setInterval(() => {
+      ++timer;
+      h = Math.floor(timer / 3600);
+      m = Math.floor((timer - h * 3600) / 60);
+      s = timer - h * 3600 - m * 60;
+      this.stopwatch = `${this.zeroFront(h)}:${this.zeroFront(m)}:${this.zeroFront(s)}`;
+    }, 1000);
   }
 
   timeout(): string {
