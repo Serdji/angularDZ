@@ -5,5 +5,5 @@
     </div>
     <div class="mail-box__name">{{user?.fullName}}</div>
   </div>
-  <app-letter></app-letter>
+  <app-letter *ngFor="let letter of letterArr" [letter]="letter"></app-letter>
 </div>
