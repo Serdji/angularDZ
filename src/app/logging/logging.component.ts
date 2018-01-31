@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { MailBoxService } from '../mail-box.service';
 
 @Component({
   selector: 'app-logging',
@@ -8,25 +8,30 @@ import { UsersService } from '../users.service';
 })
 export class LoggingComponent implements OnInit {
 
-  private users: any;
+  @Output() emailEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() entranceEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  private mailBoxes: any;
 
   public entrance: boolean;
   public email: string;
   public error: boolean;
 
-  constructor(private _usersService: UsersService) { }
+  constructor(private _mailBoxService: MailBoxService) { }
 
   ngOnInit() {
-    this._usersService.usersList.subscribe(usersList => this.users = usersList);
+    this._mailBoxService.mailBoxList.subscribe(mailBoxList => this.mailBoxes = mailBoxList);
   }
 
   entranceMail(value) {
     this.entrance = false;
     this.error = false;
-    for (const user of this.users) {
-      if (user.email === value) {
+    for (const mailBox of this.mailBoxes) {
+      if (mailBox.title === value) {
         this.entrance = !this.entrance;
+        this.entranceEvent.emit(this.entrance);
         this.email = value;
+        this.emailEvent.emit(this.email);
       } else {
         this.error = !this.error;
       }
@@ -35,6 +40,7 @@ export class LoggingComponent implements OnInit {
 
   exitMail() {
     this.entrance = !this.entrance;
+    this.entranceEvent.emit(this.entrance);
   }
 
 }

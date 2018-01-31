@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  public email: string;
+  public entrance: boolean;
+
+  getEmail(dataEmail) {
+    this.email = dataEmail;
+  }
+
+  getEntrance(dataEntrance) {
+    this.entrance = dataEntrance
+  }
 }

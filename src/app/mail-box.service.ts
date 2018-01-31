@@ -7,7 +7,7 @@ export class MailBoxService {
   constructor(private _http: HttpClient) { }
 
   get mailBoxList() {
-    return this._http.get('http://test-api.javascript.ru/v1/ssumatokhin/mailBox');
+    return this._http.get('http://test-api.javascript.ru/v1/ssumatokhin/mailBoxes');
   }
 
 }
