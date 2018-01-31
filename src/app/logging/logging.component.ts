@@ -11,7 +11,7 @@ export class LoggingComponent implements OnInit {
   @Output() emailEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() entranceEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  private mailBoxes: any;
+  public mailBoxes: any;
 
   public entrance: boolean;
   public email: string;

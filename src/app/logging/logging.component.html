@@ -9,8 +9,6 @@
   </div>
   <div *ngIf="error" class="logging__error">
     <h2>Ваш email не найде, попробуйте один из этих:</h2>
-    <p>sample87@mail.ru</p>
-    <p>sample74@mail.ru</p>
-    <p>sample69@mail.ru</p>
+    <p *ngFor="let mail of mailBoxes">{{mail.title}}</p>
   </div>
 </div>

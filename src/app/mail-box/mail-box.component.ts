@@ -5,8 +5,8 @@ import { LettersService } from '../letters.service';
 interface Iuser {
   _id: string;
   email: string;
-  avatarUrl: string;
   fullName: string;
+  avatarUrl?: string;
 }
 
 interface Iletter {
