@@ -1,24 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
-import { LogginComponent } from './loggin/loggin.component';
 import { MailBoxComponent } from './mail-box/mail-box.component';
-import { LetterComponent } from './letter/letter.component';
+import { LetterComponent } from './mail-box/letter/letter.component';
+
+import { UsersService } from './users.service';
+import { MailBoxService } from './mail-box.service';
+import { LettersService } from './letters.service';
+import { LoggingComponent } from './logging/logging.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogginComponent,
     MailBoxComponent,
-    LetterComponent
+    LetterComponent,
+    LoggingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UsersService,
+    MailBoxService,
+    LettersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
