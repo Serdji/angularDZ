@@ -10,6 +10,8 @@ import { LetterComponent } from './mail-box/letter/letter.component';
 import { UsersService } from './users.service';
 import { MailBoxService } from './mail-box.service';
 import { LettersService } from './letters.service';
+import { SendListService } from './send-list.service';
+import { DeleteListService } from './delete-list.service';
 import { LoggingComponent } from './logging/logging.component';
 
 
@@ -27,7 +29,9 @@ import { LoggingComponent } from './logging/logging.component';
   providers: [
     UsersService,
     MailBoxService,
-    LettersService
+    LettersService,
+    SendListService,
+    DeleteListService
   ],
   bootstrap: [AppComponent]
 })

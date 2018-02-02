@@ -1,4 +1,4 @@
-{
+export const userList = {
   "mailboxes": [
     {
       "_id": "5a7079d3ee8f7fa64a77fb66",

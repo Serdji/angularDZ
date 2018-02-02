@@ -32,6 +32,15 @@
     align-items: center
     justify-content: center
     cursor: pointer
+    &:hover
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    &:active
+      background darkgrey
 
   &__error
     color: #9f0000
+    border: 1px solid gray
+    padding: 20px
+    margin-top: 50px
+    .logging__button
+      width: 100%
