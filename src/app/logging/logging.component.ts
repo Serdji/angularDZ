@@ -71,4 +71,10 @@ export class LoggingComponent implements OnInit {
     this.inputValue = ' ';
   }
 
+  onSendMail(e, value) {
+    if (e.keyCode === 13) {
+      this.entranceMail(value);
+    }
+  }
+
 }

@@ -4,7 +4,7 @@
     <div class="logging__button" (click)="exitMail()">Выход</div>
   </div>
   <div *ngIf="!entrance" class="logging__entrance">
-    <input #entranceInput value="{{inputValue}}" placeholder="Введите Ваш email" type="email" class="logging__input">
+    <input #entranceInput (keypress)="onSendMail($event, entranceInput.value)" value="{{inputValue}}" placeholder="Введите Ваш email" type="email" class="logging__input">
     <div class="logging__button" (click)="entranceMail(entranceInput.value)">Вход</div>
   </div>
   <div *ngIf="error" class="logging__error">
