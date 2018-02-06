@@ -1,4 +1,5 @@
 <div class="app">
   <app-logging (emailEvent)="getEmail($event)" (entranceEvent)="getEntrance($event)"></app-logging>
   <app-mail-box *ngIf="entrance" [email]="email"></app-mail-box>
+  <app-registration></app-registration>
 </div>

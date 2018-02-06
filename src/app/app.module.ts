@@ -13,6 +13,7 @@ import { LettersService } from './letters.service';
 import { SendListService } from './send-list.service';
 import { DeleteListService } from './delete-list.service';
 import { LoggingComponent } from './logging/logging.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LoggingComponent } from './logging/logging.component';
     AppComponent,
     MailBoxComponent,
     LetterComponent,
-    LoggingComponent
+    LoggingComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

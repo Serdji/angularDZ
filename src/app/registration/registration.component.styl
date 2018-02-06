@@ -1,0 +1,34 @@
+.registration
+  margin-top: 40px
+  border: 1px solid gray
+  padding: 0 20px
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+
+  &__input,
+  &__button
+    margin: 20px 0
+
+  &__input
+    height: 35px
+    outline: none;
+    border: 1px solid gray
+    width: 100%
+    box-sizing: border-box
+    padding-left: 20px
+    &::placeholder
+      color: dray
+
+  &__button
+    display: flex
+    height: 27px
+    width: 100%
+    border: 1px solid gray
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    &:hover
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    &:active
+      background darkgrey
