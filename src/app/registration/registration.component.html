@@ -2,7 +2,10 @@
   <form action="" [formGroup]="form" (submit)="sendForm()"  class="registration__form">
     <input type="text" formControlName="name" placeholder="Имя" class="registration__input">
     <input type="text" formControlName="surname" placeholder="Фамилия" class="registration__input">
-    <input type="text" formControlName="sex" placeholder="Пол" class="registration__input">
+    <select type="text" formControlName="sex" placeholder="Пол" class="registration__input">
+      <option value="M">М</option>
+      <option value="F">Ж</option>
+    </select>
     <input type="date" formControlName="birthday" placeholder="Дата" class="registration__input">
     <input type="email" formControlName="email" placeholder="Email" class="registration__input">
     <button class="registration__button">Зарегистрироваться</button>
