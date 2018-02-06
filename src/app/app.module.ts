@@ -14,6 +14,7 @@ import { SendListService } from './send-list.service';
 import { DeleteListService } from './delete-list.service';
 import { LoggingComponent } from './logging/logging.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RegistrationComponent } from './registration/registration.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     UsersService,

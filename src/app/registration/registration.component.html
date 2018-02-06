@@ -1,10 +1,10 @@
 <div class="registration">
-  <form action="" class="registration__form">
-    <input type="name" class="registration__input">
-    <input type="surname" class="registration__input">
-    <input type="sex" class="registration__input">
-    <input type="date" class="registration__input">
-    <input type="email" class="registration__input">
-    <div class="registration__button">Зарегистрироваться</div>
+  <form action="" [formGroup]="form" (submit)="sendForm()"  class="registration__form">
+    <input type="text" formControlName="name" placeholder="Имя" class="registration__input">
+    <input type="text" formControlName="surname" placeholder="Фамилия" class="registration__input">
+    <input type="text" formControlName="sex" placeholder="Пол" class="registration__input">
+    <input type="date" formControlName="birthday" placeholder="Дата" class="registration__input">
+    <input type="email" formControlName="email" placeholder="Email" class="registration__input">
+    <button class="registration__button">Зарегистрироваться</button>
   </form>
 </div>
