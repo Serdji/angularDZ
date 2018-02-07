@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { checkOnAgeValidator } from '../validator/checkOnAgeValidator';
+import { urlAvatarValidator } from '../validator/urlAvatarValidator';
+import { emailValidator } from '../validator/emailValidator';
 import { UsersService } from '../users.service';
 import { MailBoxService } from '../mail-box.service';
 
@@ -29,9 +31,10 @@ export class RegistrationComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', [Validators.minLength(2), Validators.required]],
       surname: ['', [Validators.minLength(2)]],
+      avatar: ['', [urlAvatarValidator]],
       sex: ['', [Validators.required]],
       birthday: ['', [checkOnAgeValidator]],
-      email: ['', [Validators.email, Validators.required]]
+      email: ['', [emailValidator, Validators.required]]
     });
   }
 
@@ -41,7 +44,8 @@ export class RegistrationComponent implements OnInit {
         fullName: `${this.form.get('name').value} ${this.form.get('surname').value}`,
         email: this.form.get('email').value,
         birthdate: this.form.get('birthday').value,
-        gender: this.form.get('sex').value
+        gender: this.form.get('sex').value,
+        avatarUrl: this.form.get('avatar').value
       };
       const paramsMailBox = { title:  this.form.get('email').value};
 
