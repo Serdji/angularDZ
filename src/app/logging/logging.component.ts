@@ -15,10 +15,11 @@ export class LoggingComponent implements OnInit {
 
   public mailBoxes: any;
 
-  public entrance: boolean;
+  public entrance: boolean = false;
+  public isListUser: boolean = false;
+  public error: boolean = false;
+  public mailBoxArr: string[] = [];
   public email: string;
-  public isListUser: boolean;
-  public error: boolean;
   public inputValue: any;
 
   constructor(
@@ -32,22 +33,18 @@ export class LoggingComponent implements OnInit {
   }
 
   entranceMail(value) {
-    this.entrance = false;
-    this.error = false;
-    this.isListUser = false;
+    this._mailBoxService.mailBoxList.subscribe(mailBoxList => this.mailBoxes = mailBoxList);
     if (this.mailBoxes.length === 0 ) {
       this.isListUser = !this.isListUser;
-    }
-    for (const mailBox of this.mailBoxes) {
-      if (mailBox.title === value) {
-        this.entrance = !this.entrance;
-        this.entranceEvent.emit(this.entrance);
-        this.email = value;
-        this.emailEvent.emit(this.email);
-      } else {
-        this.error = !this.error;
-        console.log(this.error);
+    } else {
+      for (const mailBox of this.mailBoxes) {
+        this.mailBoxArr.push(mailBox.title);
       }
+      this.entrance = this.mailBoxArr.includes(value);
+      this.error = !this.mailBoxArr.includes(value);
+      this.entranceEvent.emit(this.entrance);
+      this.email = value;
+      this.emailEvent.emit(this.email);
     }
   }
 

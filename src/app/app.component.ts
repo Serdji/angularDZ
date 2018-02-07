@@ -15,6 +15,6 @@ export class AppComponent {
   }
 
   getEntrance(dataEntrance) {
-    this.entrance = dataEntrance
+    this.entrance = dataEntrance;
   }
 }

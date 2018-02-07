@@ -12,6 +12,8 @@ import { MailBoxService } from '../mail-box.service';
 export class RegistrationComponent implements OnInit {
   form: FormGroup;
 
+  public sendFormOk: boolean = false;
+  public userMail: string;
 
   constructor(
     private fb: FormBuilder,
@@ -34,7 +36,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   sendForm() {
-    console.log(this.form);
     if (!this.form.invalid) {
       const paramsUser = {
         fullName: `${this.form.get('name').value} ${this.form.get('surname').value}`,
@@ -44,8 +45,11 @@ export class RegistrationComponent implements OnInit {
       };
       const paramsMailBox = { title:  this.form.get('email').value};
 
-      this._usersService.setUsersList(paramsUser).subscribe();
-      this._mailBoxService.setMailBoxList(paramsMailBox).subscribe();
+      this._usersService.setUsersList(paramsUser).subscribe(() => {
+        this._mailBoxService.setMailBoxList(paramsMailBox).subscribe();
+        this.sendFormOk = true;
+        this.userMail = this.form.get('email').value;
+      });
     }
   }
 }

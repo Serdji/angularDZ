@@ -1,5 +1,5 @@
 <div class="registration">
-  <form action="" [formGroup]="form" (submit)="sendForm()"  class="registration__form">
+  <form *ngIf="!sendFormOk" action="" [formGroup]="form" (submit)="sendForm()"  class="registration__form">
     <input type="text" formControlName="name" placeholder="Имя" class="registration__input">
     <input type="text" formControlName="surname" placeholder="Фамилия" class="registration__input">
     <select type="text" formControlName="sex" placeholder="Пол" class="registration__input">
@@ -10,4 +10,5 @@
     <input type="email" formControlName="email" placeholder="Email" class="registration__input">
     <button [disabled]="form.invalid" class="registration__button">Зарегистрироваться</button>
   </form>
+  <h2 *ngIf="sendFormOk" class="registration__send-ok">{{ userMail }}</h2>
 </div>
