@@ -10,4 +10,8 @@ export class UsersService {
     return this._http.get('http://test-api.javascript.ru/v1/ssumatokhin/users');
   }
 
+  setUsersList(params) {
+    return this._http.post('http://test-api.javascript.ru/v1/ssumatokhin/users', params);
+  }
+
 }

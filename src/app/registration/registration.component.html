@@ -8,6 +8,6 @@
     </select>
     <input type="date" formControlName="birthday" placeholder="Дата" class="registration__input">
     <input type="email" formControlName="email" placeholder="Email" class="registration__input">
-    <button class="registration__button">Зарегистрироваться</button>
+    <button [disabled]="form.invalid" class="registration__button">Зарегистрироваться</button>
   </form>
 </div>

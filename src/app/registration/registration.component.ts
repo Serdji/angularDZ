@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { checkOnAgeValidator } from '../validator/checkOnAgeValidator';
+import { UsersService } from '../users.service';
+import { MailBoxService } from '../mail-box.service';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +12,12 @@ import { checkOnAgeValidator } from '../validator/checkOnAgeValidator';
 export class RegistrationComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+
+  constructor(
+    private fb: FormBuilder,
+    private _usersService: UsersService,
+    private _mailBoxService: MailBoxService
+  ) { }
 
   ngOnInit() {
     this.initForm();
@@ -28,5 +35,17 @@ export class RegistrationComponent implements OnInit {
 
   sendForm() {
     console.log(this.form);
+    if (!this.form.invalid) {
+      const paramsUser = {
+        fullName: `${this.form.get('name').value} ${this.form.get('surname').value}`,
+        email: this.form.get('email').value,
+        birthdate: this.form.get('birthday').value,
+        gender: this.form.get('sex').value
+      };
+      const paramsMailBox = { title:  this.form.get('email').value};
+
+      this._usersService.setUsersList(paramsUser).subscribe();
+      this._mailBoxService.setMailBoxList(paramsMailBox).subscribe();
+    }
   }
 }

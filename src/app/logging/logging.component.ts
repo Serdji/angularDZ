@@ -46,6 +46,7 @@ export class LoggingComponent implements OnInit {
         this.emailEvent.emit(this.email);
       } else {
         this.error = !this.error;
+        console.log(this.error);
       }
     }
   }
