@@ -48,11 +48,6 @@ export class LoggingComponent implements OnInit {
     }
   }
 
-  exitMail() {
-    this.entrance = !this.entrance;
-    this.entranceEvent.emit(this.entrance);
-  }
-
   sendList() {
     this._sendListService.send.subscribe(() => {
       this._mailBoxService.mailBoxList.subscribe(mailBoxList => this.mailBoxes = mailBoxList);
