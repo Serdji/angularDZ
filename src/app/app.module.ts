@@ -16,6 +16,7 @@ import { MailBoxService } from './mail-box.service';
 import { LettersService } from './letters.service';
 import { SendListService } from './send-list.service';
 import { DeleteListService } from './delete-list.service';
+import { MailService } from './mail.service';
 
 import { ROUTERS } from './ROUTERS';
 
@@ -38,7 +39,8 @@ import { ROUTERS } from './ROUTERS';
     MailBoxService,
     LettersService,
     SendListService,
-    DeleteListService
+    DeleteListService,
+    MailService
   ],
   bootstrap: [AppComponent]
 })

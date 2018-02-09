@@ -1,7 +1,10 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { MailBoxService } from '../mail-box.service';
 import { SendListService } from '../send-list.service';
 import { DeleteListService } from '../delete-list.service';
+import { MailService } from '../mail.service';
 
 @Component({
   selector: 'app-logging',
@@ -25,7 +28,9 @@ export class LoggingComponent implements OnInit {
   constructor(
     private _mailBoxService: MailBoxService,
     private _sendListService: SendListService,
-    private _deleteListService: DeleteListService
+    private _deleteListService: DeleteListService,
+    private _mailService: MailService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -42,9 +47,11 @@ export class LoggingComponent implements OnInit {
       }
       this.entrance = this.mailBoxArr.includes(value);
       this.error = !this.mailBoxArr.includes(value);
-      this.entranceEvent.emit(this.entrance);
       this.email = value;
-      this.emailEvent.emit(this.email);
+      this._mailService.mail = this.email;
+      if (this.entrance)  {
+        this.router.navigate(['/mailbox']);
+      }
     }
   }
 

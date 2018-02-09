@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { checkOnAgeValidator } from '../validator/checkOnAgeValidator';
 import { urlAvatarValidator } from '../validator/urlAvatarValidator';
 import { emailValidator } from '../validator/emailValidator';
@@ -20,7 +22,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _usersService: UsersService,
-    private _mailBoxService: MailBoxService
+    private _mailBoxService: MailBoxService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -53,6 +56,7 @@ export class RegistrationComponent implements OnInit {
         this._mailBoxService.setMailBoxList(paramsMailBox).subscribe();
         this.sendFormOk = true;
         this.userMail = this.form.get('email').value;
+        setTimeout(() => {this.router.navigate(['/'])}, 1000);
       });
     }
   }
