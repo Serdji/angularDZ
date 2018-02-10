@@ -28,9 +28,6 @@ interface Iletter {
 })
 export class MailBoxComponent implements OnInit {
 
-  private users: any;
-  private letters: any;
-
   public email: string;
   public user: Iuser;
   public letterArr: Iletter[] = [];
@@ -47,20 +44,14 @@ export class MailBoxComponent implements OnInit {
   ngOnInit() {
     this._usersService.usersList.subscribe((usersList: Iuser[]) => {
       this.email = this._mailService.mail;
-      this.users = usersList;
-      for (const user of this.users) {
+      for (const user of usersList) {
         if (user.email === this.email) {
           this.user = user;
         }
       }
     });
     this._lettersService.lettersList.subscribe((lettersList: Iletter[]) => {
-      this.letters = lettersList;
-      for (const letters of this.letters) {
-        if (letters.to === this.email){
-          this.letterArr.push(letters);
-        }
-      }
+      this.letterArr = lettersList.filter((letters) => letters.to === this.email);
       this.isListLetter = this.letterArr.length !== 0;
     });
   }
