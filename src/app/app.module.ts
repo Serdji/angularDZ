@@ -17,6 +17,7 @@ import { LettersService } from './services/letters.service';
 import { SendListService } from './services/send-list.service';
 import { DeleteListService } from './services/delete-list.service';
 import { MailService } from './services/mail.service';
+import { CookieService } from './services/cookie.service';
 import { AuthGuard } from './auth.guard';
 
 import { ROUTERS } from './ROUTERS';
@@ -42,7 +43,8 @@ import { ROUTERS } from './ROUTERS';
     SendListService,
     DeleteListService,
     MailService,
-    AuthGuard
+    AuthGuard,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

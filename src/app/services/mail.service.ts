@@ -1,21 +1,26 @@
+import { Injectable } from '@angular/core';
+import { CookieService } from './cookie.service';
+
+@Injectable()
 export class MailService {
 
   private mailVar: string;
 
-  constructor() { }
+  constructor( private _cookieService: CookieService ) {}
 
   set mail(val) {
-    this.mailVar = val;
+    this._cookieService.setCookie('email', val, {});
   }
 
   get mail() {
-    return this.mailVar;
+    return this._cookieService.getCookie('email');
   }
 
   isMail() {
-    if (this.mailVar !== undefined) {
+    if (this._cookieService.getCookie('email') !== undefined) {
       return true;
     }
+    return false;
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { MailService } from './services/mail.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router){
-    this.router.navigate(['']);
+  constructor(
+    private _mailService: MailService,
+    private router: Router,
+    private location: Location
+    ){
+    if (!this._mailService.isMail() && this.location.path() === '/mailbox') {
+      this.router.navigate(['']);
+    }
   }
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { LettersService } from '../services/letters.service';
 import { MailService } from '../services/mail.service';
+import { CookieService } from '../services/cookie.service';
 
 interface Iuser {
   _id: string;
@@ -33,11 +34,13 @@ export class MailBoxComponent implements OnInit {
   public email: string;
   public user: Iuser;
   public letterArr: Iletter[] = [];
+  public isListLetter: boolean;
 
   constructor(
     private _usersService: UsersService,
     private _lettersService: LettersService,
     private _mailService: MailService,
+    private _cookieService: CookieService,
     private router: Router
   ) { }
 
@@ -58,7 +61,13 @@ export class MailBoxComponent implements OnInit {
           this.letterArr.push(letters);
         }
       }
+      this.isListLetter = this.letterArr.length !== 0;
     });
+  }
+
+  closeMail(){
+    this.router.navigate(['/']);
+    this._cookieService.deleteCookie('email');
   }
 
 }

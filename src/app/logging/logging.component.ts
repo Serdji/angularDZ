@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { MailBoxService } from '../services/mail-box.service';
 import { SendListService } from '../services/send-list.service';
 import { DeleteListService } from '../services/delete-list.service';
-import { MailService } from '../services/mail.service';
+import { MailService } from '../services/mail.service'
+import { CookieService } from '../services/cookie.service';
 
 @Component({
   selector: 'app-logging',
@@ -30,6 +31,7 @@ export class LoggingComponent implements OnInit {
     private _sendListService: SendListService,
     private _deleteListService: DeleteListService,
     private _mailService: MailService,
+    private _cookieService: CookieService,
     private router: Router
     ) { }
 
