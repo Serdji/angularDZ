@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MailBoxService } from '../mail-box.service';
-import { SendListService } from '../send-list.service';
-import { DeleteListService } from '../delete-list.service';
-import { MailService } from '../mail.service';
+import { MailBoxService } from '../services/mail-box.service';
+import { SendListService } from '../services/send-list.service';
+import { DeleteListService } from '../services/delete-list.service';
+import { MailService } from '../services/mail.service';
 
 @Component({
   selector: 'app-logging',

@@ -11,12 +11,13 @@ import { LetterComponent } from './mail-box/letter/letter.component';
 import { LoggingComponent } from './logging/logging.component';
 import { RegistrationComponent } from './registration/registration.component';
 
-import { UsersService } from './users.service';
-import { MailBoxService } from './mail-box.service';
-import { LettersService } from './letters.service';
-import { SendListService } from './send-list.service';
-import { DeleteListService } from './delete-list.service';
-import { MailService } from './mail.service';
+import { UsersService } from './services/users.service';
+import { MailBoxService } from './services/mail-box.service';
+import { LettersService } from './services/letters.service';
+import { SendListService } from './services/send-list.service';
+import { DeleteListService } from './services/delete-list.service';
+import { MailService } from './services/mail.service';
+import { AuthGuard } from './auth.guard';
 
 import { ROUTERS } from './ROUTERS';
 
@@ -40,7 +41,8 @@ import { ROUTERS } from './ROUTERS';
     LettersService,
     SendListService,
     DeleteListService,
-    MailService
+    MailService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

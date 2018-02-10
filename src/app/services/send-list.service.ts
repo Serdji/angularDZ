@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { userList } from '../user';
+import { userList } from '../../user';
 
 @Injectable()
 export class SendListService {

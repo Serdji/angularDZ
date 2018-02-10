@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UsersService } from '../users.service';
-import { LettersService } from '../letters.service';
-import { MailService } from '../mail.service';
+import { UsersService } from '../services/users.service';
+import { LettersService } from '../services/letters.service';
+import { MailService } from '../services/mail.service';
 
 interface Iuser {
   _id: string;
@@ -44,9 +44,6 @@ export class MailBoxComponent implements OnInit {
   ngOnInit() {
     this._usersService.usersList.subscribe((usersList: Iuser[]) => {
       this.email = this._mailService.mail;
-      if (this.email === undefined) {
-        this.router.navigate(['/']);
-      }
       this.users = usersList;
       for (const user of this.users) {
         if (user.email === this.email) {

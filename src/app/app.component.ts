@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  public email: string;
-  public entrance: boolean;
-
-  getEmail(dataEmail) {
-    this.email = dataEmail;
-  }
-
-  getEntrance(dataEntrance) {
-    this.entrance = dataEntrance;
+  constructor(private router: Router){
+    this.router.navigate(['']);
   }
 }

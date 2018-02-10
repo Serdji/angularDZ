@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { checkOnAgeValidator } from '../validator/checkOnAgeValidator';
 import { urlAvatarValidator } from '../validator/urlAvatarValidator';
 import { emailValidator } from '../validator/emailValidator';
-import { UsersService } from '../users.service';
-import { MailBoxService } from '../mail-box.service';
+import { UsersService } from '../services/users.service';
+import { MailBoxService } from '../services/mail-box.service';
 
 @Component({
   selector: 'app-registration',
