@@ -2,7 +2,7 @@
   <div class="mail-box__title">{{ email }}</div>
   <div class="mail-box__button" (click)="closeMail()">Выход</div>
 </div>
-<div class="mail-box">
+<div *ngIf="!massage" class="mail-box">
   <div class="mail-box__user">
     <div class="mail-box__logo">
       <img src="{{user?.avatarUrl ? user?.avatarUrl : 'http://placehold.it/50x50/a6a6ff'}}" alt="{{user?.email}}">
@@ -10,5 +10,6 @@
     <div class="mail-box__name">{{user?.fullName}}</div>
   </div>
   <div class="mail-box__massage" *ngIf="!isListLetter">У вас нет входящих писем</div>
-  <app-letter (eventDeleteLetter)="_initlettersList()" *ngFor="let letter of letterArr" [letter]="letter"></app-letter>
+  <app-letter (eventOpenLetter)="openLetter($event)" (eventDeleteLetter)="_initlettersList()" *ngFor="let letter of letterArr" [letter]="letter"></app-letter>
 </div>
+<router-outlet></router-outlet>

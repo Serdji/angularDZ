@@ -21,6 +21,7 @@ import { CookieService } from './services/cookie.service';
 import { AuthGuard } from './auth.guard';
 
 import { ROUTERS } from './ROUTERS';
+import { DetailedLetterComponent } from './mail-box/detailed-letter/detailed-letter.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ROUTERS } from './ROUTERS';
     MailBoxComponent,
     LetterComponent,
     LoggingComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DetailedLetterComponent
   ],
   imports: [
     BrowserModule,

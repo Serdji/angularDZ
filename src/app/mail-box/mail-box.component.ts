@@ -1,10 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { UsersService } from '../services/users.service';
 import { LettersService } from '../services/letters.service';
 import { MailService } from '../services/mail.service';
 import { CookieService } from '../services/cookie.service';
+
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 interface Iuser {
   _id: string;
@@ -32,14 +37,23 @@ export class MailBoxComponent implements OnInit {
   public user: Iuser;
   public letterArr: Iletter[] = [];
   public isListLetter: boolean;
+  public massage: boolean;
 
   constructor(
     private _usersService: UsersService,
     private _lettersService: LettersService,
     private _mailService: MailService,
     private _cookieService: CookieService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private location: Location
+  ) {
+    this.router.events.filter((event) => event instanceof NavigationEnd)
+      .subscribe((event) => {
+         if(event.url === '/mailbox') {
+           this.massage = false;
+         }
+      });
+  }
 
   ngOnInit() {
     this._initlettersList();
@@ -63,6 +77,10 @@ export class MailBoxComponent implements OnInit {
   closeMail(){
     this.router.navigate(['/']);
     this._cookieService.deleteCookie('email');
+  }
+
+  openLetter(event) {
+    this.massage = event;
   }
 
 }
