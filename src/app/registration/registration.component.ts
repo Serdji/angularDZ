@@ -7,6 +7,7 @@ import { urlAvatarValidator } from '../validator/urlAvatarValidator';
 import { emailValidator } from '../validator/emailValidator';
 import { UsersService } from '../services/users.service';
 import { MailBoxService } from '../services/mail-box.service';
+import { CookieService } from '../services/cookie.service';
 
 @Component({
   selector: 'app-registration',
@@ -23,6 +24,7 @@ export class RegistrationComponent implements OnInit {
     private fb: FormBuilder,
     private _usersService: UsersService,
     private _mailBoxService: MailBoxService,
+    private _cookieService: CookieService,
     private router: Router
   ) { }
 
@@ -56,7 +58,10 @@ export class RegistrationComponent implements OnInit {
         this._mailBoxService.setMailBoxList(paramsMailBox).subscribe();
         this.sendFormOk = true;
         this.userMail = this.form.get('email').value;
-        setTimeout(() => {this.router.navigate(['/'])}, 1000);
+        setTimeout(() => {
+          this._cookieService.setCookie('email', this.userMail, {});
+          this.router.navigate(['mailbox'])
+        }, 1000);
       });
     }
   }

@@ -52,7 +52,7 @@ export class LoggingComponent implements OnInit {
       this.email = value;
       this._mailService.mail = this.email;
       if (this.entrance)  {
-        this.router.navigate(['/mailbox']);
+        this.router.navigate(['mailbox']);
       }
     }
   }
