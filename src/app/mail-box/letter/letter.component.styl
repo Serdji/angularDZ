@@ -1,13 +1,43 @@
 .letter
+  position: relative
   width: 100%
-  //height: 150px
+  height: 170px
   border: 1px solid gray;
   margin-bottom: 20px
   padding: 20px
-  //overflow: hidden
+  overflow: hidden
   box-sizing: border-box
+  box-shadow: inset 0px -81px 0px -20px rgba(255,255,255,1);
 
   &__title
     font-size: 18px
     font-weight: bold
     margin-bottom: 30px
+
+
+  &__mess
+    color:#000;
+    position:relative;
+    z-index:-1;
+
+  &__buttons
+    position: absolute
+    bottom: 20px
+    left: 20px
+    right: 20px
+    display: flex
+    justify-content: space-between
+
+  &__button
+    display: flex
+    height: 27px
+    width: 60px
+    border: 1px solid gray
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    padding: 0 5px
+    &:hover
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    &:active
+      background darkgrey

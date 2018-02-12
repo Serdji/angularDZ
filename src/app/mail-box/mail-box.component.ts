@@ -42,6 +42,10 @@ export class MailBoxComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this._initlettersList();
+  }
+
+  _initlettersList() {
     this._usersService.usersList.subscribe((usersList: Iuser[]) => {
       this.email = this._mailService.mail;
       for (const user of usersList) {
