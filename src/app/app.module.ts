@@ -22,6 +22,7 @@ import { AuthGuard } from './auth.guard';
 
 import { ROUTERS } from './ROUTERS';
 import { DetailedLetterComponent } from './mail-box/detailed-letter/detailed-letter.component';
+import { WriteLetterComponent } from './mail-box/write-letter/write-letter.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DetailedLetterComponent } from './mail-box/detailed-letter/detailed-let
     LetterComponent,
     LoggingComponent,
     RegistrationComponent,
-    DetailedLetterComponent
+    DetailedLetterComponent,
+    WriteLetterComponent
   ],
   imports: [
     BrowserModule,
