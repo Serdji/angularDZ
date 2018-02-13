@@ -14,7 +14,7 @@ export class AppComponent {
     private router: Router,
     private location: Location
     ) {
-    if (!this._mailService.isMail() && this.location.path() === '/mailbox') {
+    if (!this._mailService.isMail() && (this.location.path() !== '')) {
       this.router.navigate(['']);
     } else if (this._mailService.isMail()) {
       this.router.navigate(['mailbox']);
