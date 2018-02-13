@@ -15,5 +15,6 @@ export class LettersService {
   }
 
   getLetter(id) {
-  return this._http.get(`http://test-api.javascript.ru/v1/ssumatokhin/letters/${id}`);
+    return this._http.get(`http://test-api.javascript.ru/v1/ssumatokhin/letters/${id}`);
+  }
 }

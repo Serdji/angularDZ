@@ -48,7 +48,7 @@ export class MailBoxComponent implements OnInit {
     private location: Location
   ) {
     this.router.events.filter((event) => event instanceof NavigationEnd)
-      .subscribe((event) => {
+      .subscribe((event: NavigationEnd) => {
          if(event.url === '/mailbox') {
            this.massage = false;
          } else {
