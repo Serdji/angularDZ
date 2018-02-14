@@ -1,0 +1,43 @@
+.write-letter
+
+  &__form
+    border: 1px solid gray
+    padding: 0 20px
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+
+  &__input
+    background: transparent
+    height: 35px
+    outline: none
+    border: 1px solid gray
+    width: 100%
+    box-sizing: border-box
+    padding-left: 20px
+    margin: 20px 0
+    &::placeholder
+      color: dray
+    &.ng-touched.ng-invalid
+      border: 1px solid red;
+    &.ng-touched.ng-valid
+      border: 1px solid green;
+
+    &._text
+      resize: none
+      padding-top: 10px
+      height: 300px
+
+  &__button
+    margin: 0 0 20px auto
+    display: flex
+    height: 27px
+    width: 100px
+    border: 1px solid gray
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    &:hover
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    &:active
+      background darkgrey
