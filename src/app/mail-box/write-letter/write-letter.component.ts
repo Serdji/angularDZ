@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { emailValidator } from '../../validator/emailValidator';
+import { LettersService } from '../../services/letters.service';
+
+interface ParamsLetters {
+  mailbox: string;
+  subject: string;
+  body: string;
+  to: string;
+}
 
 @Component({
   selector: 'app-write-letter',
@@ -12,11 +21,18 @@ export class WriteLetterComponent implements OnInit {
 
   formMessage: FormGroup;
 
+  private mailBoxId: string;
+  private params: ParamsLetters;
+
   constructor(
-    private fd: FormBuilder
+    private fd: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private _lettersService: LettersService
   ) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => this.mailBoxId = params.mailBoxId);
     this.initForm();
   }
 
@@ -29,7 +45,15 @@ export class WriteLetterComponent implements OnInit {
   }
 
   sedMessage() {
-    console.log(this.formMessage);
-  }
 
+    this.params = {
+      mailbox: this.mailBoxId,
+      subject: this.formMessage.get('title').value,
+      body: this.formMessage.get('body').value,
+      to: this.formMessage.get('email').value
+    };
+    this._lettersService.sendLetter(this.params).subscribe(_ => {
+      this.router.navigate(['mailbox']);
+    });
+  }
 }

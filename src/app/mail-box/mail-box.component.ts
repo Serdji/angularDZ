@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { UsersService } from '../services/users.service';
 import { LettersService } from '../services/letters.service';
 import { MailService } from '../services/mail.service';
+import { MailBoxService} from '../services/mail-box.service';
 import { CookieService } from '../services/cookie.service';
 
 import 'rxjs/add/operator/filter';
@@ -26,6 +27,11 @@ interface Iletter {
   to: string;
 }
 
+interface ImailBox {
+  _id: string;
+  title: string;
+}
+
 @Component({
   selector: 'app-mail-box',
   templateUrl: './mail-box.component.html',
@@ -38,11 +44,13 @@ export class MailBoxComponent implements OnInit {
   public letterArr: Iletter[] = [];
   public isListLetter: boolean;
   public massage: boolean;
+  public mailBoxId: ImailBox;
 
   constructor(
     private _usersService: UsersService,
     private _lettersService: LettersService,
     private _mailService: MailService,
+    private _mailBoxService: MailBoxService,
     private _cookieService: CookieService,
     private router: Router,
     private location: Location
@@ -73,6 +81,13 @@ export class MailBoxComponent implements OnInit {
     this._lettersService.lettersList.subscribe((lettersList: Iletter[]) => {
       this.letterArr = lettersList.filter((letters) => letters.to === this.email);
       this.isListLetter = this.letterArr.length !== 0;
+    });
+    this._mailBoxService.mailBoxList.subscribe((mailBoxList: ImailBox[]) => {
+      for (const mailBox of mailBoxList) {
+        if (mailBox.title === this.email) {
+          this.mailBoxId = mailBox;
+        }
+      }
     });
   }
 
