@@ -18,6 +18,7 @@ import { SendListService } from './services/send-list.service';
 import { DeleteListService } from './services/delete-list.service';
 import { MailService } from './services/mail.service';
 import { CookieService } from './services/cookie.service';
+import { MailFilterService } from './services/mail-filter.service';
 import { AuthGuard } from './auth.guard';
 
 import { ROUTERS } from './ROUTERS';
@@ -48,7 +49,8 @@ import { WriteLetterComponent } from './mail-box/write-letter/write-letter.compo
     DeleteListService,
     MailService,
     AuthGuard,
-    CookieService
+    CookieService,
+    MailFilterService
   ],
   bootstrap: [AppComponent]
 })

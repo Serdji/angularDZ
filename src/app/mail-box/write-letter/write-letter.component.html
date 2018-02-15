@@ -1,6 +1,7 @@
 <div class="write-letter">
   <form action="" [formGroup]="formMessage" (submit)="sedMessage()"  class="write-letter__form">
     <input type="email" placeholder="Кому:" formControlName="email" class="write-letter__input">
+    <span *ngFor="let mail of mailFilter">{{mail}}</span>
     <input type="text" placeholder="Тема:" formControlName="title" class="write-letter__input">
     <textarea type="text" placeholder="Текст сообщения" formControlName="body" class="write-letter__input _text"></textarea>
     <button class="write-letter__button">Отправить</button>

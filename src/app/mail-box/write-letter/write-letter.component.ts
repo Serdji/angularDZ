@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { emailValidator } from '../../validator/emailValidator';
 import { LettersService } from '../../services/letters.service';
+import { MailFilterService } from '../../services/mail-filter.service';
 
 interface ParamsLetters {
   mailbox: string;
@@ -21,6 +22,8 @@ export class WriteLetterComponent implements OnInit {
 
   formMessage: FormGroup;
 
+  public mailFilter: string[];
+
   private mailBoxId: string;
   private params: ParamsLetters;
 
@@ -28,7 +31,8 @@ export class WriteLetterComponent implements OnInit {
     private fd: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private _lettersService: LettersService
+    private _lettersService: LettersService,
+    private _mailFilterService: MailFilterService
   ) { }
 
   ngOnInit() {
@@ -42,6 +46,7 @@ export class WriteLetterComponent implements OnInit {
       title: ['', [Validators.required]],
       body: ['', [Validators.required]]
     });
+    this.formMessage.get('email').valueChanges.subscribe(value => this.mailFilter= this._mailFilterService.filter(value));
   }
 
   sedMessage() {
