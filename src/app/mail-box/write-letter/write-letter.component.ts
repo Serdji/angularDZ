@@ -46,7 +46,7 @@ export class WriteLetterComponent implements OnInit {
       title: ['', [Validators.required]],
       body: ['', [Validators.required]]
     });
-    this.formMessage.get('email').valueChanges.subscribe(value => this.mailFilter= this._mailFilterService.filter(value));
+    this.formMessage.get('email').valueChanges.subscribe(value => this.mailFilter = this._mailFilterService.filter(value));
   }
 
   sedMessage() {

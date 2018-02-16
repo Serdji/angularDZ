@@ -1,0 +1,6 @@
+<div class="autocomplete">
+  <ng-content></ng-content>
+  <div class="autocomplete__drop" [ngStyle]="styleDrop">
+    <div class="autocomplete__mail" (click)="substitution()" [ngStyle]="styleMail" *ngFor="let mail of mailFilter">{{mail}}</div>
+  </div>
+</div>

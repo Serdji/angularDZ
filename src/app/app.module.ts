@@ -24,6 +24,7 @@ import { AuthGuard } from './auth.guard';
 import { ROUTERS } from './ROUTERS';
 import { DetailedLetterComponent } from './mail-box/detailed-letter/detailed-letter.component';
 import { WriteLetterComponent } from './mail-box/write-letter/write-letter.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { WriteLetterComponent } from './mail-box/write-letter/write-letter.compo
     LoggingComponent,
     RegistrationComponent,
     DetailedLetterComponent,
-    WriteLetterComponent
+    WriteLetterComponent,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,

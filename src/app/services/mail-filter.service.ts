@@ -11,6 +11,8 @@ export class MailFilterService {
 
   private mailBoxes: ImailBoxes[];
   private mails: string[];
+  private isMail: string[];
+
   public mailFilter: string[];
 
 
@@ -20,7 +22,12 @@ export class MailFilterService {
 
   filter(value) {
     this.mails = this.mailBoxes.map(mail => mail.title);
-    this.mailFilter = this.mails.filter( mail => mail.includes(value));
+    this.isMail = this.mails.filter(mail => mail === value);
+    if ((value.length === 0) || (this.isMail.length > 0)) {
+      this.mailFilter = [];
+    } else {
+      this.mailFilter = this.mails.filter(mail => mail.includes(value));
+    }
     return this.mailFilter;
   }
 }
