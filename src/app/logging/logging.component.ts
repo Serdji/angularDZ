@@ -7,6 +7,7 @@ import { SendListService } from '../services/send-list.service';
 import { DeleteListService } from '../services/delete-list.service';
 import { MailService } from '../services/mail.service';
 import { CookieService } from '../services/cookie.service';
+import { MailFilterService } from '../services/mail-filter.service';
 import { emailValidator } from '../validator/emailValidator';
 
 @Component({
@@ -29,6 +30,7 @@ export class LoggingComponent implements OnInit {
   public email: string;
   public inputValue: any;
   public entranceInput: string;
+  public mailFilter: string[];
 
 
   constructor(
@@ -37,6 +39,7 @@ export class LoggingComponent implements OnInit {
     private _deleteListService: DeleteListService,
     private _mailService: MailService,
     private _cookieService: CookieService,
+    private _mailFilterService: MailFilterService,
     private router: Router,
     private fb: FormBuilder
     ) { }
@@ -47,6 +50,7 @@ export class LoggingComponent implements OnInit {
       email: ['', [emailValidator]]
     });
     this.formLogging.get('email').valueChanges.subscribe(value => this.entranceInput = value);
+    this.formLogging.get('email').valueChanges.subscribe(value => this.mailFilter = this._mailFilterService.filter(value));
   }
 
   entranceMail() {
@@ -87,6 +91,10 @@ export class LoggingComponent implements OnInit {
     if (e.keyCode === 13) {
       this.entranceMail();
     }
+  }
+
+  mailValue(value) {
+    this.formLogging.controls.email.setValue(value);
   }
 
 }

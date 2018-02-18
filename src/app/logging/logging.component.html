@@ -1,6 +1,8 @@
 <div class="logging">
   <form class="logging__entrance" action="" [formGroup]="formLogging">
-    <input formControlName="email" (keypress)="onSendMail($event)" placeholder="Введите Ваш email" type="email" class="logging__input">
+    <app-autocomplete class="logging__autocomplete" (eventMailValue)="mailValue($event)" [mailInput]="mailInput" [mailFilter]="mailFilter">
+      <input #mailInput formControlName="email" (keypress)="onSendMail($event)" placeholder="Введите Ваш email" type="email" class="logging__input">
+    </app-autocomplete>
     <div class="logging__button" (click)="entranceMail()">Вход</div>
   </form>
   <a class="logging__registration" routerLink="registration">Регистрация</a>
