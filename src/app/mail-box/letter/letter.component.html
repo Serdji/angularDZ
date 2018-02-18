@@ -1,8 +1,9 @@
-<div #letterBox id="{{letter._id}}" class="letter">
+<div class="letter">
+  <div class="letter__from">От: {{mailBox?.title}}</div>
   <div class="letter__title">{{letter.subject}}</div>
   <div class="letter__mess">{{letter.body}}</div>
   <div class="letter__buttons">
-    <div class="letter__button" (click)="openLetter(letterBox.id)">Открыть</div>
-    <div class="letter__button" (click)="deleteLetter(letterBox.id)">Удалить</div>
+    <div class="letter__button" (click)="openLetter()">Открыть</div>
+    <div class="letter__button" (click)="deleteLetter()">Удалить</div>
   </div>
 </div>

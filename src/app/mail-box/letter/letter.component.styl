@@ -3,22 +3,30 @@
   width: 100%
   height: 170px
   border: 1px solid gray;
-  margin-bottom: 20px
+  margin-bottom: 30px
   padding: 20px
-  overflow: hidden
   box-sizing: border-box
-  box-shadow: inset 0px -81px 0px -20px rgba(255,255,255,1);
 
-  &__title
+  &__title,
+  &__from
     font-size: 18px
     font-weight: bold
-    margin-bottom: 30px
+    margin-bottom: 10px
+
+  &__from
+    position: absolute
+    top: -24px
+    left: -14px
+    background-color: #ffffff
+    padding: 10px
 
 
   &__mess
     color:#000;
     position:relative;
     z-index:-1;
+    height: 56px
+    overflow: hidden
 
   &__buttons
     position: absolute
