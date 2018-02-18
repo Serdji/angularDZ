@@ -1,8 +1,7 @@
 <div class="write-letter">
   <form action="" [formGroup]="formMessage" (submit)="sedMessage()"  class="write-letter__form">
-    <app-autocomplete [mailInput]="mailInput" [mailFilter]="mailFilter">
-      <input #mailInput autocomplete="off" type="email" placeholder="Кому:" formControlName="email" class="write-letter__input">
-    </app-autocomplete>
+    <app-autocomplete (eventMailValue)="mailValue($event)" [mailInput]="mailInput" [mailFilter]="mailFilter"></app-autocomplete>
+    <input #mailInput autocomplete="off" type="email" placeholder="Кому:" formControlName="email" class="write-letter__input">
     <input type="text" placeholder="Тема:" formControlName="title" class="write-letter__input">
     <textarea type="text" placeholder="Текст сообщения" formControlName="body" class="write-letter__input _text"></textarea>
     <button class="write-letter__button">Отправить</button>

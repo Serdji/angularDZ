@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-autocomplete',
@@ -9,6 +9,9 @@ export class AutocompleteComponent implements OnInit {
 
   @Input() mailFilter: string[];
   @Input() mailInput: any;
+  @Input() formMail: any;
+
+  @Output() eventMailValue: EventEmitter<string> = new EventEmitter<string>();
 
   public styleDrop: any;
   public styleMail: any;
@@ -31,9 +34,7 @@ export class AutocompleteComponent implements OnInit {
     this.styleMail = {'padding-left': `${pl}px`};
   }
 
-  substitution() {
-    console.log(123);
-
+  substitution(event) {
+    this.eventMailValue.emit(event.target.innerText);
   }
-
 }

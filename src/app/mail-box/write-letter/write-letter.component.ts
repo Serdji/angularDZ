@@ -61,4 +61,8 @@ export class WriteLetterComponent implements OnInit {
       this.router.navigate(['mailbox']);
     });
   }
+
+  mailValue(value) {
+    this.formMessage.controls.email.setValue(value);
+  }
 }
