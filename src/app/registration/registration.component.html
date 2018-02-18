@@ -9,7 +9,7 @@
     </select>
     <input type="date" formControlName="birthday" placeholder="Дата" class="registration__input">
     <input type="email" formControlName="email" placeholder="Email" class="registration__input">
-    <button [disabled]="form.invalid" class="registration__button">Зарегистрироваться</button>
+    <button class="registration__button">Зарегистрироваться</button>
   </form>
   <h2 *ngIf="sendFormOk" class="registration__send-ok">{{ userMail }}</h2>
 </div>

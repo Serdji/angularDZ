@@ -44,6 +44,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   sendForm() {
+    for (const inner of Object.keys(this.form.controls)) {
+      this.form.get(inner).markAsTouched();
+    }
     if (!this.form.invalid) {
       const paramsUser = {
         fullName: `${this.form.get('name').value} ${this.form.get('surname').value}`,
