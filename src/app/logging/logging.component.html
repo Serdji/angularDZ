@@ -1,8 +1,8 @@
 <div class="logging">
-  <div class="logging__entrance">
-    <input #entranceInput (keypress)="onSendMail($event, entranceInput.value)" value="{{inputValue}}" placeholder="Введите Ваш email" type="email" class="logging__input">
-    <div class="logging__button" (click)="entranceMail(entranceInput.value)">Вход</div>
-  </div>
+  <form class="logging__entrance" action="" [formGroup]="formLogging">
+    <input formControlName="email" (keypress)="onSendMail($event)" placeholder="Введите Ваш email" type="email" class="logging__input">
+    <div class="logging__button" (click)="entranceMail()">Вход</div>
+  </form>
   <a class="logging__registration" routerLink="registration">Регистрация</a>
   <div *ngIf="error" class="logging__error">
     <h2>Ваш email не найде, попробуйте один из этих:</h2>
