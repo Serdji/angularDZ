@@ -57,9 +57,7 @@ export class WriteLetterComponent implements OnInit {
       body: this.formMessage.get('body').value,
       to: this.formMessage.get('email').value
     };
-    this._lettersService.sendLetter(this.params).subscribe(_ => {
-      this.router.navigate(['mailbox']);
-    });
+    this._lettersService.sendLetter(this.params).subscribe(_ => this.router.navigate(['mailbox']));
   }
 
   mailValue(value) {
