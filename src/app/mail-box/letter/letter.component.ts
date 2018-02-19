@@ -35,7 +35,7 @@ export class LetterComponent implements OnInit {
   ngOnInit() {
     this._mailBoxService.getMailTitle(this.letter.mailbox).subscribe(
       title => this.mailBox = title,
-      error => console.log(error.message)
+      error => this.mailBox = error
     );
   }
 
