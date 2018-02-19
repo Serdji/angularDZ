@@ -9,8 +9,12 @@
     </div>
     <div class="mail-box__name">{{user?.fullName}}</div>
   </div>
-  <div routerLink="write-letter" [queryParams]="{ mailBoxId: mailBoxId?._id }" class="mail-box__button-write-letter">Написать письмо</div>
+  <div class="mail-box__button-sorting" [ngClass]="{'_reverse': reverseArr}" (click)="letterReverse()">[∨]</div>
+  <div routerLink="write-letter" [queryParams]="{ mailBoxId: mailBoxId?._id }" class="mail-box__button-write-letter">
+    Написать письмо
+  </div>
   <div class="mail-box__massage" *ngIf="!isListLetter">У вас нет входящих писем</div>
-  <app-letter (eventOpenLetter)="openLetter($event)" (eventDeleteLetter)="_initlettersList()" *ngFor="let letter of letterArr" [letter]="letter"></app-letter>
+  <app-letter (eventOpenLetter)="openLetter($event)" (eventDeleteLetter)="_initlettersList()"
+              *ngFor="let letter of letterArr" [letter]="letter"></app-letter>
 </div>
 <router-outlet></router-outlet>

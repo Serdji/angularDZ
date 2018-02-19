@@ -45,6 +45,7 @@ export class MailBoxComponent implements OnInit {
   public isListLetter: boolean;
   public massage: boolean;
   public mailBoxId: ImailBox;
+  public reverseArr: boolean = false;
 
   constructor(
     private _usersService: UsersService,
@@ -98,6 +99,11 @@ export class MailBoxComponent implements OnInit {
 
   openLetter(event) {
     this.massage = event;
+  }
+
+  letterReverse() {
+    this.letterArr.reverse();
+    this.reverseArr = !this.reverseArr;
   }
 
 }

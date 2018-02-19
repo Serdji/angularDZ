@@ -29,18 +29,30 @@
     &:active
       background darkgrey
 
-  &__button-write-letter
-    position: absolute
-    top: -16px
-    right: -16px
-    padding: 5px
-    background: #ffffff
-    box-shadow: 0 0 0 20px rgba(255,255,255,1);
-    &:hover
-      background darkgrey
-    &:active
-      background #636363
-      color azure
+    &-write-letter
+      position: absolute
+      top: -16px
+      right: -16px
+      padding: 5px
+      background: #ffffff
+      box-shadow: 0 0 0 20px rgba(255,255,255,1);
+      &:hover
+        background darkgrey
+      &:active
+        background #636363
+        color azure
+
+    &-sorting
+      position: absolute
+      top: -16px
+      right: 150px
+      padding: 5px
+      background: #ffffff
+      box-shadow: 0 0 0 5px rgba(255,255,255,1);
+      cursor: pointer
+
+      &._reverse
+        transform: rotate(180deg)
 
 
 
