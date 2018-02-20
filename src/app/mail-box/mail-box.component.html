@@ -14,7 +14,7 @@
     Написать письмо
   </div>
   <div class="mail-box__massage" *ngIf="!isListLetter">У вас нет входящих писем</div>
-  <app-letter (eventOpenLetter)="openLetter($event)" (eventDeleteLetter)="_initlettersList()"
+  <app-letter [mailBoxId]="mailBoxId?._id" (eventOpenLetter)="openLetter($event)" (eventDeleteLetter)="_initlettersList()"
               *ngFor="let letter of letterArr" [letter]="letter"></app-letter>
 </div>
 <router-outlet></router-outlet>

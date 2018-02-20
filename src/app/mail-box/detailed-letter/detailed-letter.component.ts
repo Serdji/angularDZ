@@ -14,6 +14,7 @@ export class DetailedLetterComponent implements OnInit {
 
   public letter: object;
   public fromMail: string;
+  public mailBoxId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +25,7 @@ export class DetailedLetterComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.id = params.letterId;
       this.fromMail = params.fromMail;
+      this.mailBoxId = params.mailBoxId;
     });
     this._lettersService.getLetter(this.id).subscribe(letter => {
       this.letter = letter;

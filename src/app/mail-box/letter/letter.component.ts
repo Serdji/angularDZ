@@ -21,6 +21,7 @@ interface Iletter {
 export class LetterComponent implements OnInit {
 
   @Input() letter: Iletter;
+  @Input() mailBoxId: any;
   @Output() eventDeleteLetter = new EventEmitter();
   @Output() eventOpenLetter: EventEmitter<boolean> = new EventEmitter<boolean>();
 

@@ -23,6 +23,7 @@ export class WriteLetterComponent implements OnInit {
   formMessage: FormGroup;
 
   public mailFilter: string[];
+  public fromMail: string;
 
   private mailBoxId: string;
   private params: ParamsLetters;
@@ -36,13 +37,16 @@ export class WriteLetterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => this.mailBoxId = params.mailBoxId);
+    this.route.queryParams.subscribe(params => {
+      this.mailBoxId = params.mailBoxId;
+      this.fromMail = params.fromMail ? params.fromMail : '';
+    });
     this.initForm();
   }
 
   initForm() {
     this.formMessage = this.fd.group({
-      email: ['', [Validators.required, emailValidator]],
+      email: [this.fromMail, [Validators.required, emailValidator]],
       title: ['', [Validators.required]],
       body: ['', [Validators.required]]
     });
