@@ -3,7 +3,7 @@
   <div class="letter__title">{{letter.subject}}</div>
   <div class="letter__mess">{{letter.body}}</div>
   <div class="letter__buttons">
-    <div class="letter__button" (click)="openLetter()">Открыть</div>
+    <div class="letter__button" routerLink="detailed-letter" [queryParams]="{ letterId: letter._id,  fromMail: fromMail?.title}">Открыть</div>
     <div class="letter__button" (click)="deleteLetter()">Удалить</div>
   </div>
 </div>

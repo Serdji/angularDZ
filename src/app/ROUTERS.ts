@@ -12,7 +12,7 @@ export const ROUTERS = [
     component: MailBoxComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'detailed-letter/:id', component: DetailedLetterComponent },
+      { path: 'detailed-letter', component: DetailedLetterComponent },
       { path: 'write-letter', component: WriteLetterComponent }
     ],
   }

@@ -11,7 +11,9 @@ import { LettersService } from '../../services/letters.service';
 export class DetailedLetterComponent implements OnInit {
 
   private id: string;
+
   public letter: object;
+  public fromMail: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,7 +21,10 @@ export class DetailedLetterComponent implements OnInit {
   ) {
   }
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.route.queryParams.subscribe(params => {
+      this.id = params.letterId;
+      this.fromMail = params.fromMail;
+    });
     this._lettersService.getLetter(this.id).subscribe(letter => {
       this.letter = letter;
     });
