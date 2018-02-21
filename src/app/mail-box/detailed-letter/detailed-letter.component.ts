@@ -12,7 +12,7 @@ export class DetailedLetterComponent implements OnInit {
 
   private id: string;
 
-  public letter: object;
+  public letter: any;
   public fromMail: string;
   public mailBoxId: string;
 

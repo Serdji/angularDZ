@@ -25,14 +25,13 @@ export class LetterComponent implements OnInit {
   @Output() eventDeleteLetter = new EventEmitter();
   @Output() eventOpenLetter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  public mailBox: object;
-  public fromMail: string;
+  public mailBox: any;
+  public fromMail: any;
 
   constructor(
     private _lettersService: LettersService,
-    private _mailBoxService: MailBoxService,
-    private router: Router
-  ){ }
+    private _mailBoxService: MailBoxService
+  ) { }
 
   ngOnInit() {
     this._mailBoxService.getMailTitle(this.letter.mailbox).subscribe(
