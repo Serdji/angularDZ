@@ -8,7 +8,7 @@ export class SendListService {
   constructor(private _http: HttpClient ) { }
 
   get send() {
-    return this._http.post('http://test-api.javascript.ru/v1/ssumatokhin', userList);
+    return this._http.post('https://test-api.javascript.ru/v1/ssumatokhin', userList);
   }
 
 }

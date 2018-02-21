@@ -7,11 +7,11 @@ export class UsersService {
   constructor(private _http: HttpClient) { }
 
   get usersList() {
-    return this._http.get('http://test-api.javascript.ru/v1/ssumatokhin/users');
+    return this._http.get('https://test-api.javascript.ru/v1/ssumatokhin/users');
   }
 
   setUsersList(params) {
-    return this._http.post('http://test-api.javascript.ru/v1/ssumatokhin/users', params);
+    return this._http.post('https://test-api.javascript.ru/v1/ssumatokhin/users', params);
   }
 
 }

@@ -7,6 +7,6 @@ export class DeleteListService {
   constructor(private _http: HttpClient) { }
 
   get deleteList() {
-    return this._http.delete('http://test-api.javascript.ru/v1/ssumatokhin', { responseType: 'text' });
+    return this._http.delete('https://test-api.javascript.ru/v1/ssumatokhin', { responseType: 'text' });
   }
 }

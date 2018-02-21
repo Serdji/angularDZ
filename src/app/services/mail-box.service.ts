@@ -11,15 +11,15 @@ export class MailBoxService {
   constructor(private _http: HttpClient) { }
 
   get mailBoxList() {
-    return this._http.get('http://test-api.javascript.ru/v1/ssumatokhin/mailBoxes');
+    return this._http.get('https://test-api.javascript.ru/v1/ssumatokhin/mailBoxes');
   }
 
   setMailBoxList(params) {
-    return this._http.post('http://test-api.javascript.ru/v1/ssumatokhin/mailBoxes', params);
+    return this._http.post('https://test-api.javascript.ru/v1/ssumatokhin/mailBoxes', params);
   }
 
   getMailTitle(id) {
-    return this._http.get(`http://test-api.javascript.ru/v1/ssumatokhin/mailBoxes/${id}`).catch((error: any) => Observable.throw({ title: 'Ананимный адрес' }));
+    return this._http.get(`https://test-api.javascript.ru/v1/ssumatokhin/mailBoxes/${id}`).catch((error: any) => Observable.throw({ title: 'Ананимный адрес' }));
   }
 
 }
