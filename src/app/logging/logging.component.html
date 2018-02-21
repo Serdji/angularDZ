@@ -10,8 +10,8 @@
     <h2>Ваш email не найде, попробуйте один из этих:</h2>
     <p *ngFor="let mail of mailBoxes">{{mail.title}}</p>
     <br>
-    <p><b>Хочешь удалить всё ?</b></p>
-    <div class="logging__button" (click)="deleteList()">Жми</div>
+    <!--<p><b>Хочешь удалить всё ?</b></p>-->
+    <!--<div class="logging__button" (click)="deleteList()">Жми</div>-->
   </div>
   <div *ngIf="isListUser" class="logging__error">
     <h2>Нет данных на сервере. Хочешь их загрузить ?</h2>

@@ -5,6 +5,6 @@
   <div class="detailed-letter__from" *ngIf="fromMail">От: {{fromMail}}</div>
   <div class="detailed-letter__message">{{letter?.body}}</div>
   <div *ngIf="fromMail" routerLink="/mailbox/write-letter" [queryParams]="{ mailBoxId: mailBoxId, fromMail: fromMail }" class="detailed-letter__button-write-letter">
-    Написать письмо
+    Ответить
   </div>
 </div>
