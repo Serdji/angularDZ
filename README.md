@@ -1,27 +1,30 @@
-# MyApp
+Ментальная карта работы с проектом https://coggle.it/diagram/Wo_K4YZpVgABIEUZ/t/%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D1%8B%D0%B9-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81-1519372833337/108c5b903f6a22be92ae5a5e6da13b06bb86cbe64027b302f349bed84a6b9494
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+Вход в почтовый сервис:
+1. Можно пройти регистрацию и сразу попасть на свою страницу;
+2. Можно начать вводить название почты и автокомплит поможет. Например "c.c@bk.ru";
+3. Если и этого не хочется делать, просто нажать на кнопку входа и покажется тестовый блок со всеми адресами какие только есть.
 
-## Development server
+Управление сервисом:
+1. Если мы будем перезагружать страницу, мы будем всегда оставаться на своей странице, пока не нажмем кнопку выход;
+2. При нажатии на [∨] меняется фильтрация писем от последнего к первому;
+3. Есть возможность удалять и открывать что бы прочитать подробнее письмо;
+4. Письма "От: Анонимный адрес". Это тестовые письма, на них нет возможности ответить, но можно открывать и удалять;
+5. Так же можно написать письмо.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Написать письмо или ответить:
+1. Нажать на кнопку написать письмо;
+2. В поле кому, работает атокомплит как на странице входа;
+3. Также если зайти в письмо через кнопку открыть, внизу будет кнопка ответить (кроме анонимных адресов). В поле кому адрес будет подставляться автоматический;
+4. Если письмо успешно отправилось, перекидывает на страницу с письмами.
 
-## Code scaffolding
+Проверить работу сервиса
+1. Отправить письмо или ответить и запомнить адрес кому написали;
+2. Выйти из своей учетки;
+3. В поле с кнопкой войти ввести адрес кому мы отправляли письмо;
+4. Пролистать в самый низ или нажать на [∨] и мы увидим писмо.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Особенности
+1. ОЧЕНЬ простой дизайн;
+2. Могут не отправлять письма внутри сервиса, не знаю по какой причине, лечиться перезагрузкой странице;
+3. При регистрации в поле аватар, не все урлы воспринимаются, что то не так с регуляркой.

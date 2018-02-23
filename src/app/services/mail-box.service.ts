@@ -19,7 +19,7 @@ export class MailBoxService {
   }
 
   getMailTitle(id) {
-    return this._http.get(`https://test-api.javascript.ru/v1/ssumatokhin/mailBoxes/${id}`).catch((error: any) => Observable.throw({ title: 'Ананимный адрес' }));
+    return this._http.get(`https://test-api.javascript.ru/v1/ssumatokhin/mailBoxes/${id}`).catch((error: any) => Observable.throw({ title: 'Анонимный адрес' }));
   }
 
 }
